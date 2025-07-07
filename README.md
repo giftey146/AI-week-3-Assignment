@@ -61,4 +61,51 @@ Has a large and active global community and extensive documentation.
 
 Scales well to big data and real-time applications.
 
-Let me know when you're ready for the TensorFlow code debugging (Part 3.2), or if you'd like help preparing this assignment for submission (e.g., Jupyter notebook formatting or combining tasks)
+
+
+A. Bias in MNIST Model (Digit Recognition)
+Potential Biases:
+
+Digit distribution imbalance: Some digits may appear more frequently than others, which can skew model performance.
+
+Cultural handwriting bias: The dataset consists mainly of handwritten digits from U.S. students, potentially limiting generalizability to diverse populations.
+
+Overfitting to clean samples: The model may not perform well on messy, real-world handwriting.
+
+Mitigation Strategies:
+
+Use data augmentation (e.g., rotation, distortion) to simulate a wider variety of handwriting styles.
+
+Apply TensorFlow Fairness Indicators to evaluate model performance across different slices (if demographic metadata is available).
+
+Continuously test the model with real-world or culturally diverse samples to ensure fairness.
+
+B. Bias in Amazon Reviews Model (NER and Sentiment)
+Potential Biases:
+
+Brand favoritism: Rule-based sentiment tools may unintentionally favor well-known brands.
+
+Lexicon limitations: Sentiment analysis using fixed rule-based tools like TextBlob may misinterpret slang, sarcasm, or non-standard dialects.
+
+NER limitations: spaCy’s pre-trained models may not accurately recognize local or lesser-known product and brand names.
+
+Mitigation Strategies:
+
+Use custom rule-based patterns in spaCy (e.g., Matcher or EntityRuler) to identify products and brands specific to the domain.
+
+Train a custom sentiment analysis model on a balanced set of Amazon reviews to reduce dependence on general-purpose tools.
+
+Ensure the training data includes a diverse range of brands, product categories, and user demographics to minimize bias.
+
+Summary
+To develop fair and ethical machine learning models, it is important to:
+
+Identify and monitor potential sources of bias in datasets and algorithms.
+
+Use appropriate fairness and evaluation tools (e.g., TensorFlow Fairness Indicators).
+
+Incorporate domain knowledge and diverse data when building NLP tools like NER and sentiment models.
+
+
+
+
